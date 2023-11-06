@@ -1,11 +1,18 @@
 import { useCallback, useState, useMemo } from "react";
 import { t } from "ttag";
-import { Checkbox, TextInput, Box, Flex, Text } from "metabase/ui";
+import {
+  Checkbox,
+  TextInput,
+  Box,
+  Flex,
+  Text,
+  StackedCheckbox,
+} from "metabase/ui";
 
 import { Icon } from "metabase/core/components/Icon";
 import type { TableColumnOrderSetting } from "metabase-types/api";
 import { getColumnIcon } from "metabase/common/utils/columns";
-import { StackedCheckBox } from "metabase/components/StackedCheckBox/StackedCheckBox";
+
 import type * as Lib from "metabase-lib";
 import type {
   ColumnSetting,
@@ -187,7 +194,7 @@ export const ChartSettingAddRemoveColumns = ({
             {showAddRemoveAll(columnGroup.columns) && (
               <Box mb="0.75rem">
                 {areAllColumnsInQuery(columnGroup.columns) ? (
-                  <StackedCheckBox
+                  <StackedCheckbox
                     label={<Text fw={700} ml="0.75rem">{t`Remove all`}</Text>}
                     checked={true}
                     onClick={() =>
@@ -195,7 +202,7 @@ export const ChartSettingAddRemoveColumns = ({
                     }
                   />
                 ) : (
-                  <StackedCheckBox
+                  <StackedCheckbox
                     label={<Text fw={700} ml="0.75rem">{t`Add all`}</Text>}
                     checked={false}
                     onClick={() => addAllColumnsFromTable(columnGroup.columns)}
